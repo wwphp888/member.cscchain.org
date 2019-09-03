@@ -1,0 +1,204 @@
+<include file="public@header"/>
+
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#A" data-toggle="tab">系统设置</a></li>
+        <li><a href="#B" data-toggle="tab">版本管理</a></li>
+        <li><a href="#C" data-toggle="tab">短信设置</a></li>
+        <li><a href="#D" data-toggle="tab">用户注册协议</a></li>
+    </ul>
+    <form class="form-horizontal js-ajax-form margin-top-20" role="form" action="{:url('config/index')}"
+          method="post">
+        <fieldset>
+            <div class="tabbable">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="A">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                系统配置
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="input-site-name" class="col-sm-2 control-label"><span
+                                            class="form-required">*</span>{:lang('WEBSITE_NAME')}</label>
+                                    <div class="col-md-6 col-sm-10">
+                                        <input type="text" class="form-control" id="input-site-name" name="webname" value="{$config['webname']??''}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-site-name" class="col-sm-2 control-label"><span
+                                            class="form-required">*</span>转账手续费</label>
+                                    <div class="col-md-6 col-sm-10">
+                                        <input type="text" class="form-control"  name="traccount_ratio" value="{$config['traccount_ratio']??''}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-primary js-ajax-submit" data-refresh="1">
+                                            {:lang('SAVE')}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="tab-pane  " id="B" >
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                版本配置
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="input-site-name" class="col-sm-2 control-label"><span
+                                            class="form-required">*</span>版本号</label>
+                                    <div class="col-md-6 col-sm-10">
+                                        <input type="text" class="form-control" name="version" value="{$config['version']??''}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-site-name" class="col-sm-2 control-label"><span
+                                            class="form-required">*</span>下载链接</label>
+                                    <div class="col-md-6 col-sm-10">
+                                        <input type="text" class="form-control"  name="version_url" value="{$config['version_url']??''}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-site-name" class="col-sm-2 control-label"><span
+                                            class="form-required">*</span>更新内容</label>
+                                    <div class="col-md-6 col-sm-10">
+                                        <textarea type="text" name="version_content"  class=" form-control valid" aria-invalid="false">{$config['version_content']??''}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-primary js-ajax-submit" data-refresh="1">
+                                            {:lang('SAVE')}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane  " id="C" >
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                短信设置
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                                    <div class="col-xs-12 col-sm-6 col-md-4" style="height: 45px;">
+                                        <div class="alert alert-danger" role="alert" style="height: 43px;background: rgba(249,101,0,0.5);">
+                                            请准确填写, 填写之后不可修改, 否则后果自负
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-site-name" class="col-sm-2 control-label"><span
+                                            class="form-required">*</span>appKey</label>
+                                    <div class="col-md-6 col-sm-10">
+                                        <input type="text" class="form-control" name="appKey" value="{$config['appKey']??''}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-site-name" class="col-sm-2 control-label"><span
+                                            class="form-required">*</span>secretKey</label>
+                                    <div class="col-md-6 col-sm-10">
+                                        <input type="text" class="form-control"  name="secretKey" value="{$config['secretKey']??''}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-site-name" class="col-sm-2 control-label"><span
+                                            class="form-required">*</span>签名</label>
+                                    <div class="col-md-6 col-sm-10">
+                                        <input type="text" class="form-control"  name="signName" value="{$config['signName']??''}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-site-name" class="col-sm-2 control-label"><span
+                                            class="form-required">*</span>模板名称</label>
+                                    <div class="col-md-6 col-sm-10">
+                                        <input type="text" class="form-control"  name="SmsTemplateCode" value="{$config['SmsTemplateCode']??''}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-site-name" class="col-sm-2 control-label"><span
+                                            class="form-required">*</span>模板中的变量名</label>
+                                    <div class="col-md-6 col-sm-10">
+                                        <input type="text" class="form-control"  name="variable" value="{$config['variable']??''}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-primary js-ajax-submit" data-refresh="1">
+                                            {:lang('SAVE')}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane  " id="D" >
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                短信设置
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="input-site-name" class="col-sm-2 control-label"><span
+                                            class="form-required">*</span>用户协议</label>
+                                    <div class="col-md-6 col-sm-10">
+                                        <script type="text/plain" id="content" name="user_agreement">{$config['user_agreement']??''}</script>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-primary js-ajax-submit" data-refresh="1">
+                                            {:lang('SAVE')}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+    //编辑器路径定义
+    var editorURL = GV.WEB_ROOT;
+</script>
+<script type="text/javascript" src="__STATIC__/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__STATIC__/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        editorcontent = new baidu.editor.ui.Editor();
+        editorcontent.render('content');
+        try {
+            editorcontent.sync();
+        } catch (err) {
+        }
+
+        $('.btn-cancel-thumbnail').click(function () {
+            $('#thumbnail-preview').attr('src', '__TMPL__/public/assets/images/default-thumbnail.png');
+            $('#thumbnail').val('');
+        });
+    });
+
+</script>

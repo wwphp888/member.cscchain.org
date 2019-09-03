@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>报名表</title>
+    <link rel="stylesheet" href="/static/reg/css/common_mobile.css">
+    <link rel="stylesheet" href="/static/reg/css/index.css">
+    <style>
+        body{
+            overflow: scroll;
+        }
+        main {
+            margin: 2rem 1rem 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="/static/reg/css/ydui.css">
+    <!-- 移动端适配 -->
+    <script>
+        var html = document.querySelector('html');
+        changeRem();
+        window.addEventListener('resize', changeRem);
+
+        function changeRem() {
+            var width = html.getBoundingClientRect().width;
+            html.style.fontSize = width / 10 + 'px';
+        }
+    </script>
+</head>
+<style>
+    .input-content1 {
+        background-image: url(/static/reg/image/input_border1.png);
+        height: 1.3rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .input-content1 input {
+        border: none;
+        margin-top: 0.34rem;
+        margin-left: 0.5rem;
+        color: #fff;
+    }
+     .bc_header{
+         background: url(/static/reg/image/bc_header.png);
+         background-size: 100% 100%;
+         width: 100%;
+     }
+      .submit1 {
+        background-image: url(/static/reg/image/next_step.png);
+        margin-top: 0.8rem;
+        color: #fff;
+        height: 0.9rem;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.3rem;
+    }
+</style>
+<body>
+<div>
+    <div class="bc_header">
+        <div style="font-size:14px;color: #B0DEFF;font-weight: bold;padding: 18px 0;text-align: center;">打造ZING“活力万人社区”配合主网上线活动报名表</div>
+    </div>
+    <!--<div class="logo" >
+        <img src="/static/reg/image/logo.png" alt="">
+    </div>-->
+    <div class="logo">
+        <img  style="width: 20%;margin: 0.5rem auto;" src="/static/reg/image/logo.png" alt="">
+    </div>
+    <main style="margin-top: 0rem;">
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-title"><span>Phone Number</span> 手机号</div>
+            </div>
+            <div class="input-content1">
+                <input type="tel" class="phone" id="phone" placeholder="请输入您的手机号">
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-title"><span>WeChat</span> 微信</div>
+            </div>
+            <div class="input-content1">
+                <input type="text" class="wxcard" id="wxcard" placeholder="请输入您的微信号">
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-title"><span>Company</span> 公司</div>
+            </div>
+            <div class="input-content1">
+                <input type="text" class="company" id="company" placeholder="请输入公司名称">
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-title"><span>Position</span> 职位</div>
+            </div>
+            <div class="input-content1">
+                <input type="text" class="position" id="position" placeholder="请输入您的职位">
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-title"><span>Email</span> 邮箱</div>
+            </div>
+            <div class="input-content1">
+                <input type="text" class="email" id="email" placeholder="请输入您的邮箱">
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-title"><span>Purpose of participation</span> 参会目的</div>
+            </div>
+            <div class="input-content1">
+                <input type="text"maxlength="200" class="participation" id="participation" placeholder="请输入您的参会目的">
+            </div>
+        </div>
+        <div class="submit1">
+            Submit 提交
+        </div>
+    </main>
+</div>
+<div id="area">
+    <div class="nav">
+        <a href="javascript:void(0)" class="topagea"><img class='arrow-left' src="/static/reg/image/arrow-left.png" alt=""></a>
+    </div>
+    <div class="area-main">
+
+    </div>
+</div>
+<script src="/static/reg/js/jquery.min.js"></script>
+<script src="/static/reg/js/ydui.js"></script>
+<script src="/static/reg/js/config.js"></script>
+<script src="/static/reg/js/index.js"></script>
+    <script>
+        var dialog = window.YDUI.dialog;
+        var is_vato = false;
+        $('.submit1').click(function() {
+            if(is_vato){
+                return;
+            }
+            is_vato = false;
+            var phone = $("#phone").val();
+            if(phone=='' || phone==undefined){
+                dialog.toast("请输入手机号！", 'error', 1500);
+                return;
+            }
+            var wxcard = $("#wxcard").val();
+            var company = $("#company").val();
+            var position = $("#position").val();
+            var email = $("#email").val();
+            var participation = $("#participation").val();
+            var data = {phone:phone,wxcard:wxcard,company:company,position:position,email:email,participation:participation};
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: '/index/registration/add',
+                data:data,
+                success: function (res) {
+                    if (res.code == 1) {
+                        dialog.toast(res.msg, 'success', 1500);
+                        setTimeout(function () {
+                            window.location.reload();
+                        },3000);
+                    } else {
+                        dialog.toast(res.msg, 'error', 1500);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

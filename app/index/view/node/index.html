@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Node</title>
+    <link rel="stylesheet" href="/static/reg/css/common_mobile.css">
+    <link rel="stylesheet" href="/static/reg/css/bc_index.css">
+    <style>
+        body{
+            /*overflow: scroll;*/
+            font-family:"微软雅黑";
+        }
+        main {
+            margin: 2rem 1rem 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="/static/reg/css/ydui.css">
+    <!-- 移动端适配 -->
+    <script>
+        var html = document.querySelector('html');
+        changeRem();
+        window.addEventListener('resize', changeRem);
+
+        function changeRem() {
+            var width = html.getBoundingClientRect().width;
+            html.style.fontSize = width / 10 + 'px';
+        }
+    </script>
+</head>
+<body>
+<style>
+    .bc_header{
+        background: url(/static/reg/image/bc_header.png);
+        background-size: 100% 100%;
+        width: 100%;
+    }
+    .bc_main{
+        float: left;
+        background: url(/static/reg/image/bc_d.png);
+        background-size: 100% 100%;
+        margin-top:0.5rem;
+        margin-left: 0.7rem;
+        width: calc(100% - 1.4rem);
+        height: 15rem;
+    }
+    .main_header{
+        background: url(/static/reg/image/bc_t.png);
+        background-size: 100% 100%;
+        margin-left: 0.7rem;
+        margin-top:0.5rem;
+        width: calc(100% - 1.4rem);
+        float: left;
+        font-size:13px;color: #B0DEFF;font-weight: bold;padding: 7px 0;text-align: center;
+    }
+    .main_body{
+        float: left;
+        color: #FFF;
+        overflow: scroll;
+        margin-left: 0.8rem;
+        margin-top:0.3rem;
+        width: calc(100% - 1.6rem);
+        height: 12rem;
+        word-break:break-all;
+    }
+    .choose{
+        float: left;
+        background: url(/static/reg/image/vote_h2.png);
+        background-size: 100% 100%;
+        width: 100%;
+    }
+    .c_title{
+        background: url(/static/reg/image/vote_h1.png);
+        background-size: 100% 100%;
+        width: 100%;
+        float: left;
+        width: 100%;
+        font-size: 13px;
+        padding-top: 0.26rem;
+        padding-left: 0.3rem;
+        padding-bottom: 0.1rem;
+    }
+    .c_center{
+        background: url(/static/reg/image/vote_d1.png);
+        background-size: 100% 100%;
+        float: left;
+        width: 100%;
+        font-size: 11px;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        word-wrap:normal;
+
+    }
+    .c_y{
+        background: url(/static/reg/image/vote_d2.png);
+        background-size: 100% 100%;
+        float: left;
+        width: 100%;
+        font-size: 11px;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        word-wrap:normal;
+        margin-top: 0.2rem;
+    }
+    .c_b{
+        background: url(/static/reg/image/vote_b1.png);
+        background-size: 100% 100%;
+        float: left;
+        width: 100%;
+        height: 0.85rem;
+        margin-top: 1rem;
+        /*margin-left: calc(50% - 2.25rem);*/
+        text-align: center;
+        line-height: 0.9rem;
+    }
+    .c_b2{
+        background: url(/static/reg/image/vote_b2.png);
+        background-size: 100% 100%;
+        float: left;
+        width: 100%;
+        height: 0.85rem;
+        margin-top: 1rem;
+        /*margin-left: calc(50% - 2.25rem);*/
+        text-align: center;
+        line-height: 0.9rem;
+    }
+</style>
+<!--<div class="bc_header">
+    <div style="font-size:22px;color: #B0DEFF;font-weight: bold;padding: 18px 0;text-align: center;">Node</div>
+</div>-->
+<div class="bc_main">
+    <div class="main_header">Node</div>
+    <div class="main_body">
+        <div class="choose">
+            <div class="c_center">
+                <span style="font-weight: bold;color:#fcd108;">Node Conditions - Ordinary node</span><br/>
+                <span style="font-weight: bold;color:#fcd108;">节点条件-普通节点</span><br/>
+                condition 1：Senior miners<br/>
+                条件1：高级矿工<br/>
+                condition 2: There are at least three lines, each with a total holding of 200,000 ZING coins.<br/>
+                条件2：至少有三条线，每条总的持币量达到20万枚ZING<br/>
+                condition 3: The total amount of money in the account is more than or equal to 100000 ZING<br/>
+                条件3：账户里总币量大于等于100000ZING<br/><br/>
+                <span style="font-weight: bold;color:#fcd108;">Node Conditions - Super Node</span><br/>
+                <span style="font-weight: bold;color:#fcd108;">节点条件-超级节点</span><br/>
+                condition 1：There are three lines with common nodes<br/>
+                条件1：有三条线上分布有普通节点<br/>
+                condition 2: The total amount of money in the account is more than or equal to 200000 ZING<br/>
+                条件2：账户里总币量大于等于200000ZING<br/>
+            </div>
+            <if $type eq 2>
+                <div class="c_b2" id="c_b2"  data-value="1">Applied 已申请</div>
+            <else/>
+                <div class="c_b" id="c_b1"  data-value="1">Apply 申请</div>
+            </if>
+        </div>
+    </div>
+    <input type="hidden" name="token" id = "token" value="{$token}">
+</div>
+<script src="/static/reg/js/jquery.min.js"></script>
+<script src="/static/reg/js/ydui.js"></script>
+<script src="/static/reg/js/config.js"></script>
+<script src="/static/reg/js/index.js"></script>
+<script>
+    var dialog = window.YDUI.dialog;
+    var vote_type = '{$type}';
+    var is_vato = false;
+    $('.c_b').click(function() {
+        if(vote_type>1){
+            dialog.toast("已提交请等待审核", 'error', 1500);
+            return;
+        }
+        if(is_vato){
+            return;
+        }
+        is_vato = false;
+        var token = $("#token").val();
+        var type = $(this).attr("data-value");
+        var data = {token:token};
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: '/index/node/add',
+            data:data,
+            success: function (res) {
+                if (res.code == 1) {
+                    dialog.toast(res.msg, 'success', 1500);
+                    setTimeout(function () {
+                        window.location.reload();
+                    },1500);
+                } else {
+                    dialog.toast(res.msg, 'error', 1500);
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

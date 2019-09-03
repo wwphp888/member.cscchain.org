@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>申请注册</title>
+    <link rel="stylesheet" href="/static/reg/css/common_mobile.css">
+    <link rel="stylesheet" href="/static/reg/css/index.css">
+    <style>
+        body{
+            overflow: scroll;
+        }
+        main {
+            margin: 2rem 1rem 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="/static/reg/css/ydui.css">
+    <!-- 移动端适配 -->
+    <script>
+        var html = document.querySelector('html');
+        changeRem();
+        window.addEventListener('resize', changeRem);
+
+        function changeRem() {
+            var width = html.getBoundingClientRect().width;
+            html.style.fontSize = width / 10 + 'px';
+        }
+    </script>
+</head>
+<body>
+<div id="pageA">
+    <div class="title-box">
+        <div class="title">Sign In</div>
+        <div class="logo">
+            <img src="/static/reg/image/logo.png" alt="">
+        </div>
+    </div>
+    <main>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-img">
+                    <img src="/static/reg/image/mobile_icon.png" alt="">
+                </div>
+                <div class="input-title"><span>Phone Number</span> 手机号</div>
+            </div>
+            <div class="input-content">
+                <input type="tel" class="phone" placeholder="请输入您的手机号">
+                <a href="javascript:;" id="gjm">+ <span class="gjm-code">86</span><span class="gjm-img"><img src="/static/reg/image/arrow-down.png" alt=""></span> </a>
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-img">
+                    <img src="/static/reg/image/code_icon.png" alt="">
+                </div>
+                <div class="input-title"><span>Pin</span> 验证码</div>
+            </div>
+            <div class="input-content">
+                <input type="number" pattern="[0-9]*" class="input-code" placeholder="请输入您的验证码">
+                <a href="javascript:;" id="J_GetCode">Get Code</a>
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-img">
+                    <img src="/static/reg/image/password_icon.png" alt="">
+                </div>
+                <div class="input-title"><span>Password</span> 密码</div>
+            </div>
+            <div class="input-content">
+                <input type="password" class="password" placeholder="请输入您的密码">
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-img">
+                    <img src="/static/reg/image/password_icon.png" alt="">
+                </div>
+                <div class="input-title"><span>Password</span> 确认密码</div>
+            </div>
+            <div class="input-content">
+                <input type="password" class="rePassword" placeholder="请再次输入您的密码">
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-img">
+                    <img src="/static/reg/image/password_icon.png" alt="">
+                </div>
+                <div class="input-title"><span>Password</span> 交易密码</div>
+            </div>
+            <div class="input-content">
+                <input type="password" class="trade_pwd" placeholder="请输入您的密码">
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-img">
+                    <img src="/static/reg/image/password_icon.png" alt="">
+                </div>
+                <div class="input-title"><span>Password</span> 确认交易密码</div>
+            </div>
+            <div class="input-content">
+                <input type="password" class="re_trade_pwd" placeholder="请再次输入您的密码">
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-img">
+                    <img src="/static/reg/image/yqr_icon.png" alt="">
+                </div>
+                <div class="input-title"><span>Invitation Code</span> 邀请码</div>
+            </div>
+            <div class="input-content">
+                <input type="tel" class="invitation" readonly placeholder="请输入邀请码（必填）" value="{$mobile}">
+            </div>
+        </div>
+        <div class="submit">
+            Submit 提交
+        </div>
+        <div class="protocol">
+            <div class="dagou"></div>
+            <div>确认即表示同意 <a href="protocol.html">ZING《用户注册协议》</a> </div>
+        </div>
+
+    </main>
+</div>
+
+<div id="pageB">
+    <div class="nav">
+        <a href="javascript:void(0)" class="topagea"><img class='arrow-left' src="/static/reg/image/arrow-left.png" alt=""></a>
+    </div>
+    <div class="title-box" style="margin-top: 0;">
+        <div class="title">Sign In</div>
+        <div class="logo">
+            <img src="/static/reg/image/logo.png" alt="">
+        </div>
+    </div>
+    <main >
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-img">
+                    <img src="/static/reg/image/password_icon.png" alt="">
+                </div>
+                <div class="input-title"><span>Password</span> 交易密码</div>
+            </div>
+            <div class="input-content">
+                <input type="password" class="trade_pwd" placeholder="请输入您的密码">
+            </div>
+        </div>
+        <div class="input-box">
+            <div class="input-name">
+                <div class="input-img">
+                    <img src="/static/reg/image/password_icon.png" alt="">
+                </div>
+                <div class="input-title"><span>Password</span> 确认交易密码</div>
+            </div>
+            <div class="input-content">
+                <input type="password" class="re_trade_pwd" placeholder="请再次输入您的密码">
+            </div>
+        </div>
+        <div class="submit">
+            Submit 提交
+        </div>
+        <div class="protocol">
+            <div class="dagou"></div>
+            <div>确认即表示同意 <a href="/protocol.html">ZING《用户注册协议》</a> </div>
+        </div>
+    </main>
+</div>
+<div id="area">
+    <div class="nav">
+        <a href="javascript:void(0)" class="topagea"><img class='arrow-left' src="/static/reg/image/arrow-left.png" alt=""></a>
+    </div>
+    <div class="area-main">
+
+    </div>
+</div>
+<script src="/static/reg/js/jquery.min.js"></script>
+<script src="/static/reg/js/ydui.js"></script>
+<script src="/static/reg/js/config.js"></script>
+<script src="/static/reg/js/index.js"></script>
+</body>
+</html>

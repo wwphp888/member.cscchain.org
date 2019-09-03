@@ -1,0 +1,85 @@
+@charset "utf-8";
+body,
+div,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+input,
+select,
+button,
+textarea,
+table,
+th,
+td,
+a,
+span,
+canvas {
+  margin: 0;
+  padding: 0;
+  background: no-repeat center / contain;
+  cursor: default;
+}
+body {
+  display: block;
+  position: relative;
+  margin: auto;
+  max-width: 10rem;
+  min-width: 4.26666667rem;
+  font-size: 0.16rem;
+  font-family: "Microsoft Yahei", "Arial", sans-serif;
+}
+ul,
+ol {
+  list-style: none;
+}
+img {
+  border: none;
+}
+a {
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+}
+input {
+  outline: none;
+}
+.block {
+  display: block;
+}
+.none {
+  display: none;
+}
+.r {
+  position: relative;
+}
+.a {
+  position: absolute;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+}

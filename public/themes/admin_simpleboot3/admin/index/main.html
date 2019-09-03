@@ -1,0 +1,72 @@
+<include file="public@header" />
+</head>
+<body>
+<style>
+    th{text-align: left}
+    #statistics{width:90%}
+    .statis-item{color: #ffffff;padding-left: 10px;padding-right: 10px;width: 25%;float: left;}
+    .statis-item p {display: block;width: 100%;line-height: 90px;height: 90px;padding: 0 10px;}
+    #all_order p{background:#27A9E3}
+    .statis-item p .statis-name {font-size: 18px}
+    .statis-item p .statis-num {font-size: 25px}
+    #payed_order p{background: #FFA500}
+    #today_sales p{background:#F08080}
+    #month_sales p{background: 	#3CB371}
+    #yi_sales p{background:#36b6e0}
+
+</style>
+
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="/root/account/index.html">统计中心</a></li>
+
+    </ul>
+    <div class="tab-content" style="margin-top: 20px;">
+        <div class="panel panel-default">
+            <div class="panel-heading">数据统计</div>
+
+            <div class="panel-body"  >
+                <div class="form-group">
+                    <section class="content">
+                        <dl id="statistics" class="list">
+                            <dd class="statis-item " id="month_sales">
+                                <p>
+                                    <span class="statis-name pull-left" style="line-height: 40px;width: 100%;text-align: center;font-size: 20px;">总用户数</span>
+                                    <span class="statis-num pull-right " style="line-height: 40px;width: 100%;text-align: center;">{$members}</span>
+                                </p>
+                            </dd>
+                            <dd class="statis-item " id="month_sales">
+                                <p>
+                                    <span class="statis-name pull-left" style="line-height: 40px;width: 100%;text-align: center;font-size: 20px;">今日注册用户数</span>
+                                    <span class="statis-num pull-right " style="line-height: 40px;width: 100%;text-align: center;">{$todayMembers}</span>
+                                </p>
+                            </dd>
+                            <dd class="statis-item " id="month_sales">
+                                <p>
+                                    <span class="statis-name pull-left" style="line-height: 40px;width: 100%;text-align: center;font-size: 20px;">今日静态收益总和</span>
+                                    <span class="statis-num pull-right " style="line-height: 40px;width: 100%;text-align: center;">{$static_revenue}</span>
+                                </p>
+                            </dd>
+                            <dd class="statis-item " id="month_sales">
+                                <p>
+                                    <span class="statis-name pull-left" style="line-height: 40px;width: 100%;text-align: center;font-size: 20px;">今日动态收益总和</span>
+                                    <span class="statis-num pull-right " style="line-height: 40px;width: 100%;text-align: center;">{$dynamic_revenue}</span>
+                                </p>
+                            </dd>
+                            <dd class="statis-item " id="month_sales">
+                                <p>
+                                    <span class="statis-name pull-left" style="line-height: 40px;width: 100%;text-align: center;font-size: 20px;">今日社群收益总和</span>
+                                    <span class="statis-num pull-right " style="line-height: 40px;width: 100%;text-align: center;">{$social_group_profit}</span>
+                                </p>
+                            </dd>
+                        </dl>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

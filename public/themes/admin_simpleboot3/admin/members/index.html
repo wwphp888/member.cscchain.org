@@ -1,0 +1,66 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li  class="active"><a href="{:url('admin/members/index')}">会员列表</a></li>
+        <li><a href="{:url('admin/members/relation')}">会员关系</a></li>
+    </ul><br>
+    <ul>
+        <li>页面内点击 <b>禁用</b> 或 <b>冻结</b> 可执行对应扩展操作。</li>
+        <li>禁用：用户将无法登录；静态、动态、社群收益都将停止。</li>
+        <li>冻结：动态、社群收益将停止。</li>
+        <li>页面刷新：F5 或 Ctrl+R。</li>
+    </ul>
+    <form class="well form-inline" method="get" action="">
+        <input class="form-control" type="text" name="number" style="width: 150px;" placeholder="会员ID">
+        <input class="form-control" type="text" name="mobile" style="width: 150px;" placeholder="手机号">
+        <input class="form-control" type="text" name="address" style="width: 150px;" placeholder="钱包地址">
+        <input type="submit" class="btn btn-primary" value="搜索"/>
+    </form>
+    <form method="post" class="js-ajax-form">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>会员ID</th>
+                <th>手机号</th>
+                <th>钱包地址</th>
+                <th>星级</th>
+                <th>静态收益[总]</th>
+                <th>动态收益[总]</th>
+                <th>社群收益[总]</th>
+                <th>WSEC</th>
+                <th>禁用状态</th>
+                <th>冻结状态</th>
+				<th>最近登录</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="list" item="vo">
+                <tr>
+                    <td>{$vo.number}</td>
+                    <td>{$vo.mobile}</td>
+                    <td>{$vo.address}</td>
+                    <td>{$vo.sg_level}</td>
+                    <td>{$vo.profit}</td>
+                    <td>{$vo.dynamic}</td>
+                    <td>{$vo.sg_profit}</td>
+                    <td>{$vo.balance}</td>
+                    <td>
+                        <a href="/admin/members/statechanges?id={$vo.id}&state=is_disabled" title="点击进行操作">禁用</a> |
+                        {$vo.is_disabled}
+                    </td>
+                    <td>
+                         <a href="/admin/members/statechanges?id={$vo.id}&state=is_dis_award" title="点击进行操作">冻结</a> |
+                        {$vo.is_dis_award}
+                    </td>
+                    <td>{$vo.last_login}</td>
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+        <div class="pagination" style="margin-bottom: 100px; ">{$list|raw}</div>
+    </form>
+</div>
+</body>
+</html>

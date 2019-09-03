@@ -1,0 +1,131 @@
+<include file="public@header" />
+<link href="__STATIC__/js/jstree/themes/default/style.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="wrap">
+	<ul class="nav nav-tabs">
+        <li><a href="{:url('admin/members/index')}">会员列表</a></li>
+
+      <!--  <li><a href="{:url('root/members/smrz')}">实名认证</a></li>-->
+        <li class="active"><a href="{:url('admin/members/relation')}">会员关系</a></li>
+    </ul>
+    <br />
+    <div class="tab-content">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-lg-1 control-label">手机号</label>
+                    <div class="col-lg-5">
+                        <div class="search" style="height: 30px;">
+                            <input type="text" id="keyword" name="keyword" value="" style="width: 200px;height: 30px;border-radius: 5px;margin:0 10px;float: left;" placeholder="请输入手机号搜索"/>
+                            <p style="line-height: 30px;margin: 0px;float: left;font-size: 14px;">输入自动搜索</p>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div id="container"></div>
+        </div>
+    </div>
+    <script>
+    	$(function () {
+            $('#container')
+                .jstree({
+                    'core': {
+                        'data': {
+                            'url': "{:url('members/relation',array('od'=>'get_node'))}",
+                            "dataType": "json",
+                            'data': function (node) {
+                                console.log(node);
+                                return {'id': node.id};
+                            }
+                        },
+                        'check_callback': true,
+                        'themes': {
+                            'responsive': false,
+							'icons' : false
+                        }
+                    },
+                    "types": {
+                        "#": {"max_children": -1, "max_depth": -1, "valid_children": -1},
+                        "root": {"icon": "__STATIC__/images/iconfont-tree.png", "valid_children": ["default"]},
+                        "default": {"icon": "", "valid_children": ["default", "file"]},
+                        "file": {"icon": "", "valid_children": []}
+                    },
+                    'force_text': true,
+                    'plugins': ['state', 'contextmenu', 'dnd', 'search', "types"],
+                    'contextmenu': {
+                        'items': {
+                            "cut": {
+                                "separator_before": false,
+                                "separator_after": false,
+                                "label": "剪切",
+                                "action": function (data) {
+                                    var inst = $.jstree.reference(data.reference),
+                                            obj = inst.get_node(data.reference);
+                                    if (inst.is_selected(obj)) {
+                                        inst.cut(inst.get_top_selected());
+                                    } else {
+                                        inst.cut(obj);
+                                    }
+                                }
+                            },
+                            "paste": {
+                                "separator_before": false,
+                                "icon": false,
+                                "_disabled": function (data) {
+                                    return !$.jstree.reference(data.reference).can_paste();
+                                },
+                                "separator_after": false,
+                                "label": "粘贴",
+                                "action": function (data) {
+                                    var inst = $.jstree.reference(data.reference),
+                                            obj = inst.get_node(data.reference);
+                                    inst.paste(obj);
+                                }
+                            }
+                        }
+                    }
+                })
+                // .on('rename_node.jstree', function (e, data) {
+                //     $.get("{php echo $this->createWebUrl('user',array('op'=>'listSave','od'=>'rename_node'))}", {'id': data.node.id, 'text': data.text})
+                //             .fail(function () {
+                //                 data.instance.refresh();
+                //             });
+                // })
+                // .on('move_node.jstree', function (e, data) {
+                //     alert("移动功能关闭,移动无效");
+                //     return;
+                //     if (!confirm("确定移动吗，不能回撤？")) {
+                //         data.instance.refresh();
+                //         return;
+                //     }
+                //     $.get("{php echo $this->createWebUrl('user',array('op'=>'listSave','od'=>'move_node'))}", {'id': data.node.id, 'parent': data.parent, 'position': data.position}).fail(function () {
+                //         data.instance.refresh();
+                //     });
+                // })
+                .on('search.jstree', function (e, data) {
+                    $('#container').jstree(true).deselect_all()
+                    $('#container').jstree(true).select_node(data.res);
+                })
+                $('#keyword').bind('input propertychange', function () {
+                    if ($(this).val().length >= 1) {
+                        $('#container').jstree(true).search($(this).val());
+                    }
+                });
+        });
+        $(function(){
+            function show(){
+                var keyword = '{$Request.param.keyword}';
+                if(keyword != ''){
+                    $('#keyword').val(keyword);
+                    $('#container').jstree(true).search(keyword);
+                }
+               
+            }
+            setTimeout(show,500);
+        });
+    </script>
+<script src="__STATIC__/js/jstree/jstree.min.js"></script>

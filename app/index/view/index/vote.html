@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vote</title>
+    <link rel="stylesheet" href="/static/reg/css/common_mobile.css">
+    <link rel="stylesheet" href="/static/reg/css/bc_index.css">
+    <style>
+        body{
+           /*overflow: scroll;*/
+            font-family:"微软雅黑";
+        }
+        main {
+            margin: 2rem 1rem 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="/static/reg/css/ydui.css">
+    <!-- 移动端适配 -->
+    <script>
+        var html = document.querySelector('html');
+        changeRem();
+        window.addEventListener('resize', changeRem);
+
+        function changeRem() {
+            var width = html.getBoundingClientRect().width;
+            html.style.fontSize = width / 10 + 'px';
+        }
+    </script>
+</head>
+<body>
+<style>
+    .bc_header{
+        background: url(/static/reg/image/bc_header.png);
+        background-size: 100% 100%;
+        width: 100%;
+    }
+    .bc_main{
+        float: left;
+        background: url(/static/reg/image/bc_d.png);
+        background-size: 100% 100%;
+        margin-top:0.5rem;
+        margin-left: 0.7rem;
+        width: calc(100% - 1.4rem);
+        height: 15rem;
+    }
+    .main_header{
+        background: url(/static/reg/image/bc_t.png);
+        background-size: 100% 100%;
+        margin-left: 0.7rem;
+        margin-top:0.5rem;
+        width: calc(100% - 1.4rem);
+        float: left;
+        font-size:13px;color: #B0DEFF;font-weight: bold;padding: 7px 0;text-align: center;
+    }
+    .main_body{
+        float: left;
+        color: #FFF;
+        overflow: scroll;
+        margin-left: 0.8rem;
+        margin-top:0.3rem;
+        width: calc(100% - 1.6rem);
+        height: 12rem;
+        word-break:break-all;
+    }
+    .choose{
+        float: left;
+        background: url(/static/reg/image/vote_h2.png);
+        background-size: 100% 100%;
+        width: 100%;
+    }
+    .c_title{
+        background: url(/static/reg/image/vote_h1.png);
+        background-size: 100% 100%;
+        width: 100%;
+        float: left;
+        width: 100%;
+        font-size: 13px;
+        padding-top: 0.26rem;
+        padding-left: 0.3rem;
+        padding-bottom: 0.1rem;
+    }
+    .c_center{
+        background: url(/static/reg/image/vote_d1.png);
+        background-size: 100% 100%;
+        float: left;
+        width: 100%;
+        font-size: 11px;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        word-wrap:normal;
+
+    }
+    .c_y{
+        background: url(/static/reg/image/vote_d2.png);
+        background-size: 100% 100%;
+        float: left;
+        width: 100%;
+        font-size: 11px;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        word-wrap:normal;
+        margin-top: 0.2rem;
+    }
+    .c_b{
+        background: url(/static/reg/image/vote_b1.png);
+        background-size: 100% 100%;
+        float: left;
+        width: 4.3rem;
+        height: 0.85rem;
+        margin-top: 0.3rem;
+        margin-left: calc(50% - 2.25rem);
+        text-align: center;
+        line-height: 0.9rem;
+    }
+    .c_b2{
+        background: url(/static/reg/image/vote_b2.png);
+        background-size: 100% 100%;
+        float: left;
+        width: 4.3rem;
+        height: 0.85rem;
+        margin-top: 0.3rem;
+        margin-left: calc(50% - 2.25rem);
+        text-align: center;
+        line-height: 0.9rem;
+    }
+</style>
+<!--<div class="bc_header">
+    <div style="font-size:22px;color: #B0DEFF;font-weight: bold;padding: 18px 0;text-align: center;">Vote</div>
+</div>-->
+<div class="bc_main">
+    <div class="main_header">Vote</div>
+    <div class="main_body">
+        <div class="c_title">01</div>
+        <div class="choose">
+            <div class="c_center">
+                The entrance to the mining area is adjusted from ZING coin to USDT, BTC, ETH, EOS.<br/>
+                投入矿区入口由ZING币调整成USDT,BTC,ETH,EOS<br/>
+                The output of the highest mines was adjusted by 120%, and that of the common mines was adjusted by 105%.<br/>
+                高级矿区产出调整120%,普通矿区产出调整为105%<br/>
+                Promotion revenue was cancelled and medals were adjusted from 8 to 3 levels.<br/>
+                推广收益取消勋章调整由原来的8层调整为3层<br/>
+                Newly increased node revenue (Common node and super node are 0.8% and 1.2% of team input in mining area respectively.)<br/>
+                新增节点收益(普通节点和超级节点分别为团队投入矿区量的0.8%和1.2%)<br/>
+            </div>
+            <div class="c_y">
+                <div style="font-size: 13px;padding-bottom: 0.2rem;width: 100%">Advantages <span style="color:#5ECCFF;">优点</span></div>
+                <ul style="padding-bottom: 0.1rem">
+                    <li>
+                        People in the coin circle are easy to operate, and mainstream digital coin approaches directly.<br/>
+                        方便币圈朋友操作，直接主流数字币进场</li>
+                    <li>
+                        Increase the difficulty of mining and reduce the output reasonably.<br/>
+                        方便币圈朋友操作，直接主流数字币进场
+                    </li>
+                    <li>
+                        Favorable to reach ZING price consensus.<br/>
+                        有利于ZING价格共识达成
+                    </li>
+                    <li>
+                        Favorable to ZING value improvement.<br/>
+                        有益于ZING价值提升
+                    </li>
+                    <li>
+                        Cancel the medal to achieve more justice and incentive, compress algebraic incentives, and cooperate with the exchange strategy.<br/>
+                        取消勋章实现更加公正激励，压缩代数奖励，配合交易所策略
+                    </li>
+                    <li>
+                        Nodes can take on ZING's value consensus education.<br/>
+                        节点可以当担ZING的价值共识教育
+                    </li>
+                    <li>
+                        Favorable to increase market participation and enthusiasm.<br/>
+                        有有利于提高市场的参与积极性
+                    </li>
+                </ul>
+            </div>
+            <if $vote_type eq 1>
+                <div class="c_b2" data-value="1">Supported 已支持</div>
+            <else/>
+                <div class="c_b" id="c_b1"  data-value="1">Support 支持</div>
+            </if>
+            <div style="float:left;width: 100%;text-align: center;font-size: 10px;padding-top: 0.1rem;color:#5ECCFF;">已有<span id="type1">{$all_type1}</span>人选择支持</div>
+        </div>
+        <div class="c_title"  style="margin-top: 0.5rem;">02</div>
+        <div class="choose" style="margin-bottom: 0.2rem">
+            <div class="c_center">
+                Maintaining the current mining revenue without changing the entrance to the mining area.<br/>
+                不改变投入矿区入口，维持当前的挖矿收益
+            </div>
+            <div class="c_y">
+                <div style="font-size: 13px;padding-bottom: 0.2rem;width: 100%">Disadvantages <span style="color:#5ECCFF;">缺点</span></div>
+                <ul style="padding-bottom: 0.1rem">
+                    <li>
+                        Miners get more money. Compound interest deposit is serious, which is not conducive to market value promotion.<br/>
+                        矿工获得更多币量。复利滚存严重，不利于市值提升
+                    </li>
+                    <li>
+                        Medal results in serious arbitrage among speculators, and it is difficult to distribute rewards fairly.<br/>
+                        勋章导致投机客严重套利，奖励分配很难公平
+                    </li>
+                </ul>
+            </div>
+            <if $vote_type eq 2>
+                <div class="c_b2" data-value="2">Supported 已支持</div>
+            <else/>
+                <div class="c_b" id="c_b2" data-value="2">Support 支持</div>
+            </if>
+            <div style="float:left;width: 100%;text-align: center;font-size: 10px;padding-top: 0.1rem;color:#5ECCFF;">已有<span id="type2">{$all_type2}</span>人选择支持</div>
+        </div>
+    </div>
+    <input type="hidden" name="token" id = "token" value="{$token}">
+</div>
+<script src="/static/reg/js/jquery.min.js"></script>
+<script src="/static/reg/js/ydui.js"></script>
+<script src="/static/reg/js/config.js"></script>
+<script src="/static/reg/js/index.js"></script>
+<script>
+    var dialog = window.YDUI.dialog;
+    var vote_type = '{$vote_type}';
+    var is_vato = false;
+    $('.c_b').click(function() {
+        if(vote_type>0){
+            dialog.toast("您已投过票，请勿重复投票！", 'error', 1500);
+            return;
+        }
+        if(is_vato){
+            return;
+        }
+        is_vato = false;
+        var token = $("#token").val();
+        var type = $(this).attr("data-value");
+        var data = {token:token,type:type};
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: '/index/index/vote',
+            data:data,
+            success: function (res) {
+                if (res.code == 1) {
+                    vote_type = type;
+                    dialog.toast(res.msg, 'success', 1500);
+                    $("#c_b"+type).addClass("c_b2");
+                    $("#c_b"+type).removeClass("c_b");
+                    $("#c_b"+type).html("Supported 已支持");
+                    $("#type"+type).html(res.data);
+                } else {
+                    dialog.toast(res.msg, 'error', 1500);
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

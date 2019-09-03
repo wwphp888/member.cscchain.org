@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GMAX钱包用户登录注册协议</title>
+    <style>
+        body{
+            background: url(/static/reg/image/bg.png);
+            background-size: 100% 100%;
+        }
+        .nav{height: 1rem;line-height: 1.3rem;/* position: fixed; */}
+        .arrow-left{
+            width: 0.4rem;
+            margin-left: 0.4rem;
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+        <div class="nav">
+            <a href="javascript:history.back();"><img class='arrow-left' src="/static/reg/image/arrow-left.png" alt=""></a>
+
+        </div>
+    <main></main>
+    
+<script src="/static/reg/js/jquery.min.js"></script>
+<script src="/static/reg/js/config.js"></script>
+<script>
+    $.ajax({
+            type: "post",
+            dataType: "json",
+            url: zing_url + 'index/index/getProtocol',
+            success: function(res) {
+                if(res.code == 1){
+                    var content = res.data.protocol;
+                    $('main').append(content)
+                }
+                
+            },
+            error: function(res) {
+                
+            }
+        });
+</script>
+
+</body>
+</html>

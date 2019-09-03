@@ -1,0 +1,48 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:url('transfer')}">代币转账记录</a></li>
+
+    </ul>
+    <form class="well form-inline margin-top-20" method="get" action="">
+
+        档期:
+        <input type="hidden" class="form-control js-date" name="search" value="1" style="width: 100px;display: inline;" placeholder="" autocomplete="off">
+        <input type="text" class="form-control js-date" name="period_no" value="{:input('get.period_no')}" style="width: 120px;display: inline;" placeholder="请选择年月日" autocomplete="off">
+
+
+        <input type="submit" class="btn btn-primary" value="搜索">
+        <a class="btn btn-danger" href="">清空</a>
+    </form>
+    <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th width="40">档期</th>
+            <th align="left" width="160">投注总量</th>
+            <th>高级矿区</th>
+            <th>高级矿区总量</th>
+            <th>普通矿区总量</th>
+            <th>基础矿区总量</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <foreach name="lists" item="vo">
+            <tr>
+                <td>{$vo.period_no}</td>
+                <td>{$vo.total}</td>
+                <td>{$vo.name}</td>
+                <td>{$vo.advancedzing}</td>
+                <td>{$vo.ordinary}</td>
+                <td>{$vo.basezing}</td>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+    <div class="pagination" style="margin-bottom: 100px; ">{$page}</div>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
